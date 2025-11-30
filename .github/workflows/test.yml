@@ -33,12 +33,13 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      # DVC - Create credentials file from secret
+      # DVC - Create credentials file from secret (base64 encoded)
       - name: Create credentials.json
         env:
           GDRIVE_CREDENTIALS_DATA: ${{ secrets.GDRIVE_CREDENTIALS_DATA }}
         run: |
-          printenv GDRIVE_CREDENTIALS_DATA > credentials.json
+          echo "$GDRIVE_CREDENTIALS_DATA" | base64 -d > credentials.json
+          cat credentials.json | python -c "import sys,json; json.load(sys.stdin); print('JSON is valid')"
 
       - name: Modify DVC Remote
         run: |
