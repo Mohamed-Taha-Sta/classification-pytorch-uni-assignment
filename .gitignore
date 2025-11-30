@@ -3,3 +3,7 @@
 .dvc/tmp
 .dvc/cache
 /models
+
+# Service account credentials (never commit these!)
+*.json
+!dvc.lock
