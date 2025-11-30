@@ -4,6 +4,8 @@
 .dvc/cache
 /models
 /plots
+__pycache__/
+*.pyc
 
 # Service account credentials (never commit these!)
 *.json
