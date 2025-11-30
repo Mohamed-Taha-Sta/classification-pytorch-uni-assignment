@@ -3,6 +3,7 @@
 .dvc/tmp
 .dvc/cache
 /models
+/plots
 
 # Service account credentials (never commit these!)
 *.json
