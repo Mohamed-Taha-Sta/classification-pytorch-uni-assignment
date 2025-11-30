@@ -10,3 +10,7 @@ __pycache__/
 # Service account credentials (never commit these!)
 *.json
 !dvc.lock
+
+# MLflow local experiment tracking
+mlruns/
+mlartifacts/

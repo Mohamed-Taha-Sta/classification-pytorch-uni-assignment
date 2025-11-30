@@ -31,8 +31,9 @@ def main(args):
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     model.to(device)
 
-    # MLflow URI from environment variables
-    mlflow.set_tracking_uri(os.getenv("SECRET_HOST"))
+    # MLflow URI - use local server if SECRET_HOST not set
+    tracking_uri = os.getenv("SECRET_HOST", "http://localhost:5000")
+    mlflow.set_tracking_uri(tracking_uri)
 
     if args.mode == "train":
         # Load the entire dataset
